@@ -1,7 +1,7 @@
 use actix_cors::Cors;
 use actix_web::{web::Data, App, HttpServer};
 use db::db_get_handle;
-use routes::{full_grid, grid_chunk};
+use routes::grid_chunk;
 use sqlx::{Pool, Postgres};
 
 mod db;
@@ -35,7 +35,6 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(cors)
             .app_data(data)
-            .service(full_grid)
             .service(grid_chunk)
     })
     .bind((ip, port))?
