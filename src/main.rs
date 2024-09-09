@@ -14,7 +14,7 @@ pub struct AppState {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let ip = "0.0.0.0";
-    let port = 8080;
+    let port = 8081;
 
     let connection = db_get_handle().await;
     println!("[server] db connection established");
